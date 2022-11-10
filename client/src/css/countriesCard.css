@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+
+
+.contenedor-card{
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    width: 350px;
+}
+
+img{
+    margin-top: 10px;
+    border-radius: 75px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+img:hover {
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+}
+
+h3,h4{
+    font-family: 'Dancing Script', cursive;
+}

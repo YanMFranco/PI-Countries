@@ -1,0 +1,6 @@
+.contenedor-home{
+    background-image: url("./img/Fondo.jpg");
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

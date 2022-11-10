@@ -1,11 +1,59 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.contenedor{
     background-image: url("./img/Fondo.jpg");
+    margin: auto;
+    height: 100%;
+    width: 100%;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: -200px;
+    position: absolute;
 }
 
 h1{
-    color: rgb(105, 17, 17);
+    margin-top: 50px;
+    display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  font: normal 48px/normal 'Dancing Script', cursive;
+  color: rgba(255,255,255,1);
+  text-decoration: normal;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+button{
+    height: 50px;
+    margin: auto;
+    display: block;
+    margin-top: 150px;
+    border-color: #00ffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    background-image: -webkit-linear-gradient(45deg, #6dd6d6 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #6dd6d6 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+button:hover {
+    background-position: 0;
+}
+
+a{
+    text-decoration:none;
 }

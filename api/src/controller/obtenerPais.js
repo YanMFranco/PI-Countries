@@ -9,7 +9,7 @@ const obtenerPais = async (name) => {
         const paisesInfo = paisesRes.map(info => {
             return {
                 id_letters: info.altSpellings != null ? info.altSpellings[0] : "No data",
-                name: info.name.official,
+                name: info.name.common,
                 image: info.flags.png,
                 continet: info.continents[0],
                 subregion: info.subregion != null ? info.subregion : "No data",
