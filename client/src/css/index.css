@@ -1,0 +1,11 @@
+*{
+    background-image: url("./img/Fondo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -200px;
+}
+
+h1{
+    color: rgb(105, 17, 17);
+}
