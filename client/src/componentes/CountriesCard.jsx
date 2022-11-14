@@ -1,12 +1,12 @@
 import React from "react";
 import '../css/countriesCard.css';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const VideoGameCard = ({ name, image , continet }) => {
+const countriesCard = ({ id,name, image , continet }) => {
     return (
         <div className="contenedor-card">
             <div>
-                <img src={image} alt="Img Not Found" />
+                <Link to={`/country/${id}`}><img src={image} alt="Img Not Found" /></Link>
                 <h3 className="name">{name}</h3>
                 <h4>Continente: {continet}</h4>
             </div>
@@ -14,4 +14,4 @@ const VideoGameCard = ({ name, image , continet }) => {
     )
 }
 
-export default VideoGameCard;
+export default countriesCard;

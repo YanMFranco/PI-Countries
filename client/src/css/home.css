@@ -1,6 +1,11 @@
 .contenedor-home{
     background-image: url("./img/Fondo.jpg");
     display: flex;
+    flex-direction: column;
+}
+
+.contenedor-cardHome{
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }

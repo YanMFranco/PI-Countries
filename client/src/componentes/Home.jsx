@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getCountries } from "../redux/action";
 import CountriesCard from "./CountriesCard";
+import Menu from "./Menu";
 import '../css/home.css'
 
 class Home extends React.Component {
@@ -10,23 +11,28 @@ class Home extends React.Component {
     componentDidMount() {//signicia que se ejecute cuando el componente se monta
         this.props.getCountries()//esta en this.props porque al hacer dispatch lo enviamos a props en mapDispatchToProps
     }
-    
+
 
     render() {
-        console.log(this.props.countries);
         return (
             <div className="contenedor-home">
-                {
-                    this.props.countries?.map(
-                        (country) => <CountriesCard
-                            key={country.id}
-                            id={country.id}
-                            name={country.name}
-                            image={country.image}
-                            continet={country.continet}
-                        />
-                    )
-                }
+                <div>
+                    <Menu />
+                </div>
+
+                <div className="contenedor-cardHome">
+                    {
+                        this.props.countries?.map(
+                            (country) => <CountriesCard
+                                key={country.id}
+                                id={country.id}
+                                name={country.name}
+                                image={country.image}
+                                continet={country.continet}
+                            />
+                        )
+                    }
+                </div>
             </div>
         )
     }

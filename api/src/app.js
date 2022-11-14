@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const routes = require('./routes/obtenerPaisR');
+const obtenerPais = require('./routes/obtenerPaisR');
 const tourismPost = require('./routes/turismoR')
 
 require('./db.js');
@@ -23,7 +23,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
+server.use('/', obtenerPais);
 server.use('/',tourismPost);
 
 // Error catching endware.
