@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME } from './action';
+import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME, CREATE_ACTIVITY } from './action';
 
 const initialState = {
     countries: [],
@@ -20,6 +20,11 @@ const rootReducer = (state = initialState, action) => {
         case GET_BYNAME:
             return {
                 countries: action.payload,
+            }
+        case CREATE_ACTIVITY:
+            return {
+                ...state,
+                countries: [...state.countries, action.payload],
             }
         default:
             return { ...state };
