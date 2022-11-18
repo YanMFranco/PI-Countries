@@ -5,25 +5,24 @@ import { useDispatch } from 'react-redux';
 import { getBy_Name } from '../redux/action'
 
 const Menu = () => {
-    const dispatch = useDispatch();
+    const [search, setSearch] = useState('');
+    let dispatch = useDispatch();
 
-    const [name, setName] = useState("");
-
-    const changeHandler = (e) => {
+    const handleSubmit=(e)=> {
         e.preventDefault();
-        setName(e.target.value);
-    };
+        setSearch("");
+        dispatch(getBy_Name(search));
+    }
 
-    const submitHandler = (evento) => {
-        evento.preventDefault();
-        dispatch(getBy_Name(name))
-        setName('')
-    };
+    const handleChange=(e)=> {
+        e.preventDefault();
+        setSearch(e.target.value)
+    }
 
     return (
         <div>
-            <h1>Busca por nombre: </h1><input type="text" name="name" placeholder="Pais" value={name} onChange={e => changeHandler(e)} />
-            <input type='submit' onClick={e=>submitHandler(e)} />
+                <input  type="text" onChange={handleChange} value={search} placeholder="Nombre del pais" />
+                <input  type="submit" value="Buscar" onClick={handleSubmit}/>
         </div>
     )
 }

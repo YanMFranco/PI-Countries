@@ -1,5 +1,9 @@
 .contenedor-home{
     background-image: url("./img/Fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
     display: flex;
     flex-direction: column;
 }
@@ -9,3 +13,43 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.contenedor-home button{
+    height: 30px;
+    margin: auto;
+    display: block;
+    border-color: #00ffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    background-image: -webkit-linear-gradient(45deg, #6dd6d6 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #6dd6d6 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.contenedor-home .botones{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contenedor-home .botones div {
+    width: 200px;
+}
+
+.contenedor-home .mundo{
+    font-size: 40px;
+    margin: 0;
+}
+
+.contenedor-home a{
+    text-decoration: none;
+}
+
+

@@ -1,55 +1,86 @@
-import React from "react";
-import { connect } from "react-redux";
-import { getCountries } from "../redux/action";
+import React, { useState } from "react";
+import { getCountries , getBy_Name} from "../redux/action";
 import CountriesCard from "./CountriesCard";
-import Menu from "./Menu";
 import '../css/home.css'
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Paginado from "./Paginado";
 
-class Home extends React.Component {
+const Home = (props) => {
 
-    //Ejecuta accion que hace dispatch
-    componentDidMount() {//signicia que se ejecute cuando el componente se monta
-        this.props.getCountries()//esta en this.props porque al hacer dispatch lo enviamos a props en mapDispatchToProps
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCountries());
+    }, [dispatch]);
+
+    const itemPag = 10;
+    
+    const countriesD = useSelector((state) => state.countries);
+    
+    const [paginaActual, setPaginaActual] = useState(0)
+
+    var paisesActuales = [...countriesD].splice(paginaActual, itemPag);
+    
+    const nextHandler = () => {
+        console.log("next");
+        const totalElementos = countriesD.length;
+        console.log(totalElementos);
+        const nextPage = paginaActual + itemPag;
+        console.log(nextPage);
+        if (nextPage === totalElementos) { return }
+        setPaginaActual(nextPage);
+    }
+
+    const prevHandler = () => {
+        console.log("prev");
+        const prevPage = paginaActual - itemPag;
+        if (prevPage < 0) { return }
+        console.log(prevPage);
+        setPaginaActual(prevPage);
     }
 
 
-    render() {
-        return (
-            <div className="contenedor-home">
-                <div>
-                    <Menu />
-                </div>
+    const [search, setSearch] = useState('');
 
-                <div className="contenedor-cardHome">
-                    {
-                        this.props.countries?.map(
-                            (country) => <CountriesCard
-                                key={country.id}
-                                id={country.id}
-                                name={country.name}
-                                image={country.image}
-                                continet={country.continet}
-                            />
-                        )
-                    }
-                </div>
+    const handleSubmit=(e)=> {
+        e.preventDefault();
+        dispatch(getBy_Name(search));
+        setSearch("");
+    }
+
+    const handleChange=(e)=> {
+        e.preventDefault();
+        setSearch(e.target.value)
+    }
+    console.log(countriesD);
+    return (
+
+        <div className="contenedor-home">
+            <div>
+                <input  type="text" onChange={handleChange} value={search} placeholder="Nombre del pais" />
+                <input  type="submit" value="Buscar" onClick={handleSubmit}/>
             </div>
-        )
-    }
+
+            <div className="botones">
+                <Paginado  nextHandler={nextHandler} prevHandler={prevHandler}/>
+            </div>
+
+
+            <div className="contenedor-cardHome">
+                {
+                    paisesActuales.map(
+                        (country) => <CountriesCard
+                            key={country.id}
+                            id={country.id}
+                            name={country.name}
+                            image={country.image}
+                            continet={country.continet}
+                        />
+                    )
+                }
+            </div>
+        </div>
+    );
 }
 
-
-//Toma el estado goblal y lo manda a las props
-const mapStateToProps = (state) => {
-    return {
-        countries: state.countries//retorna un objeti con lo que tenga el estado videogames
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getCountries: () => dispatch(getCountries())//Despachamos la accion a realizar para obetener las props
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default (Home);

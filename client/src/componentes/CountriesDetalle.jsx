@@ -11,7 +11,7 @@ const CountriesDetalle = (props) => {
     useEffect(() => {
         dispatch(getContryDetalle(props.match.params.id));
     }, [dispatch, props.match.params.id]);
-    console.log(countryDetalle.tourisms);
+    
     return (
         
         <div className="contenedor-detalle">

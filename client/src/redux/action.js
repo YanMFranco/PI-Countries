@@ -30,11 +30,12 @@ export const getBy_Name = (name) => {
   };
 };
 
-export const crear_Actividad = ({input}) => {
+export const crear_Actividad = ({ input }) => {
   return async function () {
-    console.log(input);        
+    console.log(input);
     const res = await axios.post(`http://localhost:3001/activities`, input)
     console.log(res.data);
-}
+  }
 
 }
+
