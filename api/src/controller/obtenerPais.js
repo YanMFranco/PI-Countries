@@ -8,6 +8,7 @@ const obtenerPais = async (name) => {
         const paisesRes = await paisesApi.then((response) => (response.data));
         const paisesInfo = paisesRes.map(info => {
             return {
+                id: info.cca3,
                 id_letters: info.altSpellings != null ? info.altSpellings[0] : "No data",
                 name: info.name.common,
                 image: info.flags.png,

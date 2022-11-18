@@ -13,7 +13,7 @@ router.post("/activities",async(req,res)=>{
         const newActivity = await Tourism.create(obj);
         await newActivity.addCountry(id);
         const busqueda = await Country.findAll({where:{id: id}, include: [{ model: Tourism }]});
-        res.status(200).send(console.log(busqueda));
+        res.status(200).send("Actividad creada correctamente en "+id);
         
     } catch (error) {
         res.status(400).send(error.message)
