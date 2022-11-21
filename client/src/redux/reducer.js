@@ -1,7 +1,8 @@
-import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME } from './action';
+import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME, ORDER_ALPHABETICAL } from './action';
 
 const initialState = {
     countries: [],
+    countriesCopy: [],
     countryDetalle: {},
 }
 
@@ -18,10 +19,26 @@ const rootReducer = (state = initialState, action) => {
                 countryDetalle: action.payload,
             }
         case GET_BYNAME:
-            return{
+            return {
                 ...state,
                 countries: action.payload,
-            } 
+            }
+        case ORDER_ALPHABETICAL:
+            let orderedCountries = [...state.countries]
+            console.log(action.payload);
+            orderedCountries = orderedCountries.sort((a, b) => {
+                if (a.name < b.name){
+                    return action.payload === "ascendente" ? -1 : 1;
+                }
+                if(a.name > b.name){
+                    return action.payload === "ascendente" ? 1 : -1;
+                }
+                return 0
+            })
+            return {
+                ...state,
+                countries: orderedCountries,
+            }
         default:
             return { ...state };
 

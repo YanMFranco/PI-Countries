@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getCountries } from "../redux/action";
+import Ordenamiento from "./Ordenamiento";
 
 const Paginado = ({prevHandler,nextHandler}) => {
     
@@ -18,7 +19,10 @@ const Paginado = ({prevHandler,nextHandler}) => {
             <div className="mundo" > <button type="submit" onClick={countrisRefresh}>🌍</button></div>
 
             <div><button onClick={nextHandler}>NEXT</button></div>
+
+            <div><Ordenamiento /></div>
         </div>
+        
     )
 }
 

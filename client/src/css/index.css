@@ -1,14 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 .contenedor{
-    background-image: url("./img/Fondo.jpg");
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
+
 }
 
 .contenedor h1{

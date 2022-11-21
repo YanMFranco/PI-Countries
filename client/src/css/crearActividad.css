@@ -1,13 +1,6 @@
 .crear-actividad{
-    background-image: url("./img/Fondo.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
 }
 
 .crear-actividad input{
@@ -57,7 +50,7 @@
     height: 50px;
 }
 
-.crear-actividad button{
+.crear-actividad .hola {
     height: 30px;
     margin: auto;
     display: block;

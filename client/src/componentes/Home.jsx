@@ -53,10 +53,11 @@ const Home = (props) => {
         setSearch(e.target.value)
     }
     console.log(countriesD);
+
     return (
 
-        <div className="contenedor-home">
-            <div>
+        <div className={paisesActuales.length?"contenedor-home":"contenedor-cargando"}>
+            <div className="search">
                 <input  type="text" onChange={handleChange} value={search} placeholder="Nombre del pais" />
                 <input  type="submit" value="Buscar" onClick={handleSubmit}/>
             </div>
@@ -65,6 +66,9 @@ const Home = (props) => {
                 <Paginado  nextHandler={nextHandler} prevHandler={prevHandler}/>
             </div>
 
+            <div className="load">
+                <h1>Cargando</h1>
+            </div>
 
             <div className="contenedor-cardHome">
                 {

@@ -26,7 +26,10 @@ const CrearActividad = () => {
 
     const submitHandler = (evento) => {
         evento.preventDefault();
-        dispatch(crear_Actividad({ input }))
+        console.log(input.id);
+        input.id = input.id.split(",");
+        dispatch(crear_Actividad({ input }));
+        console.log(input.id);
         alert('Actividad creada correctamente');
         setInput({
             "id": [],
@@ -38,16 +41,20 @@ const CrearActividad = () => {
         });
     };
 
+    const myEnterFunction = () =>{
+        alert(`RECUERDA: Si deseas agregar esta actividad en más paises, debes seperar su ID por una COMA(",")`)
+    }
+
     return (
         <div className='crear-actividad'>
             <div>
                 <h1>Crear actividad turistica</h1>
             </div>
             <div className='contenedor-form'>
-                <form onSubmit={submitHandler}>
+                <form>
                     <div>
                         <label htmlFor="id">ID del país</label>
-                        <input type='text' value={input.id} name='id' onChange={e => changeHandler(e)} /><br />
+                        <input type='text' value={input.id} name='id' onChange={e => changeHandler(e)} /> <div onMouseEnter={myEnterFunction}>INFO+</div><br /> 
                     </div>
                     <div>
                         <label htmlFor="name">Nombre de actividad</label>
@@ -71,7 +78,7 @@ const CrearActividad = () => {
                     </select>
                     <br />
                     <div>
-                        <button type="submit">SUBMIT</button>
+                        <button type="submit" className='hola' onClick={submitHandler}>SUBMIT</button>
                     </div>
                 </form>
             </div>
