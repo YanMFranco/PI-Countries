@@ -5,6 +5,8 @@ export const GET_COUNTRIESDETALLE = "GET_COUNTRIESDETALLE";
 export const GET_BYNAME = "GET_BYNAME";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const ORDER_ALPHABETICAL = "ORDER_ALPHABETICAL";
+export const ORDER_POPULATION = "ORDER_POPULATION";
+export const ORDER_CONTINET = "ORDER_CONTINET";
 
 
 export const getCountries = () => {
@@ -48,3 +50,16 @@ export const orderAlphabetical = (order) => {
   }
 }
 
+export const orderP = (orderPo) => {
+  return {
+    type: ORDER_POPULATION,
+    payload: orderPo,
+  }
+}
+
+export const orderContinet = (orderCo) => {
+  return {
+    type: ORDER_CONTINET,
+    payload: orderCo,
+  }
+}

@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME, ORDER_ALPHABETICAL } from './action';
+import { GET_COUNTRIES, GET_COUNTRIESDETALLE, GET_BYNAME, ORDER_ALPHABETICAL, ORDER_POPULATION, ORDER_CONTINET } from './action';
 
 const initialState = {
     countries: [],
@@ -25,7 +25,6 @@ const rootReducer = (state = initialState, action) => {
             }
         case ORDER_ALPHABETICAL:
             let orderedCountries = [...state.countries]
-            console.log(action.payload);
             orderedCountries = orderedCountries.sort((a, b) => {
                 if (a.name < b.name){
                     return action.payload === "ascendente" ? -1 : 1;
@@ -38,6 +37,29 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 countries: orderedCountries,
+            }
+        case ORDER_POPULATION:
+            let orderedPopulation = [...state.countries]
+            orderedPopulation = orderedPopulation.sort((a, b) => {
+                if(a.population < b.population) {
+                    return action.payload === "ascendente" ? 1 : -1;
+                }
+                if(a.population > b.population){
+                    return action.payload === "ascendente" ? -1 : 1;
+                }
+                return 0
+            })
+            return {
+                ...state,
+                countries: orderedPopulation,
+            }
+        case ORDER_CONTINET:
+            let allCountries = [...state.countries]
+            let filteredContinents = action.payload === "todos" ? allCountries :
+            allCountries.filter((p) => p.continet === action.payload)
+            return {
+                ...state,
+                countries: filteredContinents
             }
         default:
             return { ...state };

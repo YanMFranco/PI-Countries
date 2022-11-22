@@ -13,7 +13,7 @@ const Home = (props) => {
         dispatch(getCountries());
     }, [dispatch]);
 
-    const itemPag = 10;
+    const itemPag = 9;
     
     const countriesD = useSelector((state) => state.countries);
     
