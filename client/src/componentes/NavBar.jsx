@@ -9,7 +9,6 @@ const NavBar = () => {
                 <li><Link to={"/home"}>Inicio</Link></li>
                 <li><Link to={"/createActivity"}>Crear Actividad</Link></li>
                 <li><Link to={"/"}>Salir</Link></li>
-                <li><Link to={"/"}>Contacto</Link></li>
             </ul></nav>
         </div>
     )

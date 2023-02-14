@@ -39,7 +39,6 @@ export const crear_Actividad = ({ input }) => {
     const res = await axios.post(`http://localhost:3001/activities`, input)
     console.log(res.data);
   }
-
 }
 
 export const orderAlphabetical = (order) => {

@@ -6,6 +6,8 @@ import "../css/crearActividad.css";
 
 const CrearActividad = () => {
 
+
+
     const dispatch = useDispatch();
 
     const [input, setInput] = useState({
@@ -23,6 +25,21 @@ const CrearActividad = () => {
             [e.target.name]: e.target.value
         });
     };
+
+    /*if(!input.name){
+        error.nombre = "El nombre es requerido"
+    } else if (/[0-9]/.test(input.name)){
+        error.nombre = "Nombre invalido"
+    }
+
+    if(!input.duration){
+        error.duration = "Debe ingresar una duracion"
+    } else if(!/\d/.test(input.duration)){
+        error.duration = "Debe ser un numero"
+    } else if(input.duration < 1 || input.duration > 24){
+        error.duration = "Debe ser un numero entre 1 y 24"
+    }*/
+        
 
     const submitHandler = (evento) => {
         evento.preventDefault();

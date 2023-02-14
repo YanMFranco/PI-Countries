@@ -3,6 +3,17 @@ const { Tourism, Country } = require('../db.js');
 
 const router = Router();
 
+router.get('/activitiesAll', async (req, res) => {
+    try {
+            const activities = await Tourism.findAll({ 
+                include: Country  
+                })
+                return res.json(activities) 
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 router.post("/activities",async(req,res)=>{
     try {
         const { name, dificulty, duration, season, id } = req.body;
@@ -18,6 +29,6 @@ router.post("/activities",async(req,res)=>{
     } catch (error) {
         res.status(400).send(error.message)
     }
-})
+});
 
 module.exports= router;

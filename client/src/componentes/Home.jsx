@@ -9,6 +9,7 @@ import Paginado from "./Paginado";
 const Home = (props) => {
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getCountries());
     }, [dispatch]);
@@ -45,6 +46,7 @@ const Home = (props) => {
     const handleSubmit=(e)=> {
         e.preventDefault();
         dispatch(getBy_Name(search));
+        setPaginaActual(0);
         setSearch("");
     }
 
